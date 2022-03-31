@@ -12,3 +12,12 @@ provider "intersight" {
   secretkey = var.api_private_key
   endpoint  = var.api_endpoint
 }
+
+data "intersight_organization_organization" "organization_moid" {
+  name = "default"
+}
+
+output "Pod07_organization_moid" {
+  description = "organization id"
+  value       = data.intersight_organization_organization.organization_moid.id
+}
